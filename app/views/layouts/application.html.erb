@@ -6,7 +6,22 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+        
+      <% if logged_in? %>
+        you are logged in as user <%= "#{logged_in?}"%><br><br>
+        <%= link_to "My Profile", user_path(logged_in?) %><br>
+        <%= link_to "My Solar Assets", user_path(logged_in?) %><br>
+        <%= link_to "Search Solar Assets", user_path(logged_in?) %><br>
+        <%= link_to "My Contracts", user_path(logged_in?) %><br>
+        <%= link_to "Sign Out", logout_path %><br>
+        <br><br>
+      <% else %>
+        <%= "you are currently logged out."%><br>
+        <%= link_to "Click here to Sign Up", signup_path %><br>
+        <%= link_to "Already have an account? Click here to Log In", login_path %><br>
+        <br><br>
+      <% end %>
+
   </head>
 
   <body>
