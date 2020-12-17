@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    #helper method session[:user_id] = @user.id
+
     def create #creating new user
         if user_params[:password] == user_params[:password_confirmation]
             @user = User.create(user_params)
@@ -14,11 +16,6 @@ class UsersController < ApplicationController
             redirect_to login_path
         end
     end
-
-    
-    # def login
-    #     byebug
-    # end
 
     private
 

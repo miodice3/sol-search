@@ -16,9 +16,8 @@ class SessionsController < ApplicationController
     def login
     end
 
-    def login_b
+    def login_post
         @user = User.new
-        # byebug
         @user = User.find_by(email: params[:email])
         if @user.authenticate(params[:password])
             session[:user_id] = @user.id
@@ -39,14 +38,3 @@ class SessionsController < ApplicationController
         request.env["omniauth.auth"]
     end
 end
-
-
-        #@user = User.new
-        # byebug
-        # @user = User.find_by(email: params[:email])
-        # if @user.authenticate(params[:password])
-        #     session[:user_id] = @user.id
-        #     redirect_to success_path
-        # else
-        #    redirect_to login_path
-        # end
