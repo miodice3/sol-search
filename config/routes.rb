@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get '/success', to: 'sessions#success'
   get '/logout', to: 'sessions#logout'
 
+
   get '/login', to: 'sessions#login'
+  post '/login', to: 'sessions#login_b'
 
   #google authentication routes
   get '/signup', to: 'sessions#signup'

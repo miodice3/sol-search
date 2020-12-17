@@ -15,9 +15,10 @@ class UsersController < ApplicationController
         end
     end
 
-    def login
-        byebug
-    end
+    
+    # def login
+    #     byebug
+    # end
 
     private
 

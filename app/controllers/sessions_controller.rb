@@ -13,10 +13,20 @@ class SessionsController < ApplicationController
         redirect_to success_path
     end
 
-    def create
-        byebug
+    def login
     end
 
+    def login_b
+        @user = User.new
+        # byebug
+        @user = User.find_by(email: params[:email])
+        if @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+            redirect_to success_path
+        else
+           redirect_to login_path
+        end
+    end
 
     def logout
         session.delete :user_id
@@ -29,3 +39,14 @@ class SessionsController < ApplicationController
         request.env["omniauth.auth"]
     end
 end
+
+
+        #@user = User.new
+        # byebug
+        # @user = User.find_by(email: params[:email])
+        # if @user.authenticate(params[:password])
+        #     session[:user_id] = @user.id
+        #     redirect_to success_path
+        # else
+        #    redirect_to login_path
+        # end
