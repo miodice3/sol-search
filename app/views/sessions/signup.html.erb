@@ -1,5 +1,8 @@
-this is the page for the new user<br>
-this is a test to see what updates after heroku page was live for the first time!
+<h2>Welcome to Sol-Share, pleae signup below</h2>
+
+<%= link_to "Login via Google Authentication", '/auth/google_oauth2' %><br><br>
+
+Or, please fill out the form below if you do not want to authenticate with google:<br><br>
 
 <%= form_with model:@user do |f|  %>
     <%= f.label :name %>
@@ -13,8 +16,6 @@ this is a test to see what updates after heroku page was live for the first time
     <br>
     <%= f.label :password_confirmation, "Confirm Password" %>
     <%= f.password_field :password_confirmation %>
-    <br>
+    <br><br>
     <%= f.submit %>
 <% end%>
-
-<%= link_to "Activate by Google", '/auth/google_oath2' %>
