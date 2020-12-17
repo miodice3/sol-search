@@ -3,4 +3,9 @@ class UsersController < ApplicationController
         #new comment
         @user = User.new
     end
+
+    def create
+        byebug
+    end
+    
 end
