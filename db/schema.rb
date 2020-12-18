@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_17_230119) do
+ActiveRecord::Schema.define(version: 2020_12_18_032740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,34 @@ ActiveRecord::Schema.define(version: 2020_12_17_230119) do
     t.integer "capacity"
     t.integer "term"
     t.integer "rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.integer "owner_id"
+    t.string "utility"
+    t.string "zone"
+    t.string "meter_type"
+    t.string "state"
+    t.string "country"
+    t.integer "annual_capacity"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "solar_arrays", force: :cascade do |t|
+    t.string "name"
+    t.integer "owner_id"
+    t.string "utility"
+    t.string "zone"
+    t.string "meter_type"
+    t.string "state"
+    t.string "country"
+    t.integer "annual_capacity"
+    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

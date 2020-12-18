@@ -1,0 +1,2 @@
+class SolarArray < ApplicationRecord
+end
