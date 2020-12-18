@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
     end
 
     def create
-        # byebug
+        byebug
         @location = Location.create(location_params) do |l|
             l.owner_id = session[:user_id]
         end
