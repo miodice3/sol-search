@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-    
+    #login, create, destroy, success for testing only, delete.     < change to this
+
     def signup
         @user = User.new
     end
@@ -14,17 +15,16 @@ class SessionsController < ApplicationController
     end
 
     def login
+        @user = User.new
     end
 
     def login_post
-        @user = User.new
         @user = User.find_by(email: params[:email])
-        #byebug
-        if @user.authenticate(params[:password])
+        if !!@user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect_to success_path
         else
-           redirect_to login_path
+            render 'sessions/login'
         end
     end
 
@@ -37,5 +37,9 @@ class SessionsController < ApplicationController
 
     def auth
         request.env["omniauth.auth"]
+    end
+
+    def user_params
+        params.require(:user).permit(:email, :password)
     end
 end

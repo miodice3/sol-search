@@ -1,3 +1,5 @@
+<%= link_to "Please click here to create a new location", new_location_path %><br><br>
+
 <% @locations.each do |l| %>
     <%= l.name %> - Owners Name: <%= l.owner.name %><br>
     <%= l.utility %>, <%= l.zone %>, meter type: <%= l.meter_type %><br>
@@ -5,10 +7,10 @@
     <%= l.annual_capacity %> kWh/year<br>
     The Owner has marked this as: <%= l.status %><br>
     <% if logged_in_id? == l.owner_id %>
-            <%= link_to "Click to edit details", location_path(l.id) %><br>
+            <%= link_to "Click to see individual location and edit", location_path(l.id) %><br>
         <% else %>
            <%= link_to "Click to see details or submit contract offer", location_path(l.id) %><br>
     <% end %>
-    
+
     <br><br>
 <% end %>

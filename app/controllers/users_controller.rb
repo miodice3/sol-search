@@ -1,20 +1,16 @@
 class UsersController < ApplicationController
-
+    #users/new & create, edit update destroy < add here.
     #helper method session[:user_id] = @user.id
 
     def create #creating new user
-        if user_params[:password] == user_params[:password_confirmation]
-            @user = User.create(user_params)
-            #byebug
-            if @user.id
+        @user = User.new(user_params)
+
+            if @user.save
                 session[:user_id] = @user.id
                 redirect_to success_path
             else
-                redirect_to login_path
+                render 'sessions/signup'
             end
-        else
-            redirect_to login_path
-        end
     end
 
     def show
@@ -28,3 +24,20 @@ class UsersController < ApplicationController
     end
 
 end
+
+
+
+# def create #creating new user
+#     # if user_params[:password] == user_params[:password_confirmation]
+    
+#         @user = User.create(user_params)
+#         if @user.id
+#             session[:user_id] = @user.id
+#             redirect_to success_path
+#         else
+#             redirect_to login_path
+#         end
+#     # else
+#         # redirect_to login_path
+#     # end
+# end

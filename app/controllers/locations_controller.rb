@@ -1,11 +1,16 @@
 class LocationsController < ApplicationController
+
+    def mylocations
+        @user = User.find_by(id: session[:user_id])
+        @locations = @user.owned_assets
+    end
+    
     def new
         @location = Location.new
-        #byebug
     end
 
     def create
-        byebug
+        # byebug
         @location = Location.create(location_params) do |l|
             l.owner_id = session[:user_id]
         end
@@ -13,7 +18,6 @@ class LocationsController < ApplicationController
     end
 
     def show
-        #byebug
         @location = Location.find_by(id: params[:id])
     end
 

@@ -10,8 +10,8 @@
       <% if logged_in? %>
         you are logged in as user <%= "#{logged_in?}"%><br><br>
         <%= link_to "My Profile", user_path(logged_in?) %><br>
-        <%= link_to "My Solar Assets", user_path(logged_in?) %><br>
-        <%= link_to "Search Solar Assets", user_path(logged_in?) %><br>
+        <%= link_to "My Solar Locations", '/locations/mylocations' %><br>
+        <%= link_to "Browse Solar Locations", locations_path %><br>
         <%= link_to "My Contracts", user_path(logged_in?) %><br>
         <%= link_to "Sign Out", logout_path %><br>
         <br><br>

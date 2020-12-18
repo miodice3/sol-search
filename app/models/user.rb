@@ -1,9 +1,14 @@
 class User < ApplicationRecord
     has_secure_password
 
-    validates :name, presence: true
+    validates :name, :email, presence: true
     validates_uniqueness_of :email
+
+    validates :password, :presence =>true, :confirmation =>true
+    validates_confirmation_of :password, :message => "Passwords should match"
+    
     validates :password, length: { in: 2..20 }
+
 
     has_many :owner_contracts, foreign_key: :owner_id, class_name: 'Contract'
     has_many :consumer_contracts, foreign_key: :consumer_id, class_name: 'Contract'

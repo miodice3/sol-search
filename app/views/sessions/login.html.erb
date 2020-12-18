@@ -4,7 +4,8 @@
 
 Or, please fill out the form below if you do not want to authenticate with google:<br><br>
 
-<%= form_with model:@user do |f|  %>
+<%= form_with model:@user, :url => login_path(@user) do |f|  %>
+
     <%= f.label :email %>
     <%= f.text_field :email %>
     <br>
@@ -12,4 +13,5 @@ Or, please fill out the form below if you do not want to authenticate with googl
     <%= f.password_field :password %>
     <br><br>
     <%= f.submit "login" %>
+
 <% end%>
