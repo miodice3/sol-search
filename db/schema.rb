@@ -15,19 +15,6 @@ ActiveRecord::Schema.define(version: 2020_12_18_032740) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "assets", force: :cascade do |t|
-    t.integer "owner_id"
-    t.string "utility"
-    t.string "zone"
-    t.string "meter_type"
-    t.string "state"
-    t.string "country"
-    t.integer "annual_capacity"
-    t.string "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "contracts", force: :cascade do |t|
     t.integer "owner_id"
     t.integer "consumer_id"
@@ -54,25 +41,10 @@ ActiveRecord::Schema.define(version: 2020_12_18_032740) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "solar_arrays", force: :cascade do |t|
-    t.string "name"
-    t.integer "owner_id"
-    t.string "utility"
-    t.string "zone"
-    t.string "meter_type"
-    t.string "state"
-    t.string "country"
-    t.integer "annual_capacity"
-    t.string "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
     t.string "email"
-    t.integer "uid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

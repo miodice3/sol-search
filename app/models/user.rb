@@ -5,9 +5,10 @@ class User < ApplicationRecord
     validates_uniqueness_of :email
     validates :password, length: { in: 2..20 }
 
+    has_many :owner_contracts, foreign_key: :owner_id, class_name: 'Contract'
+    has_many :consumer_contracts, foreign_key: :consumer_id, class_name: 'Contract'
 
-
-    #validates :name
+    has_many :owned_assets, foreign_key: :owner_id, class_name: 'Location'
 
     #skip_before_action :verified_user, only: [:new, :create]
 
@@ -17,15 +18,5 @@ class User < ApplicationRecord
             u.password = SecureRandom.hex(12)
         end
     end
-
-    # def self.find_or_create_from_form(params)
-    #     #byebug
-    #     if params[:password] == params[:password_confirmation]
-    #         User.find_or_create_by(email: params[:email]) do |u|
-    #             u.name = params[:name]
-    #             u.password = params[:password]
-    #         end
-    #     end
-    # end
 
 end

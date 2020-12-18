@@ -3,10 +3,8 @@ Rails.application.routes.draw do
   
   
   resources :users
-  resources :assets
   resources :contracts
-  # resources :solarArray
-  resources :location
+  resources :locations
   
   
   get '/success', to: 'sessions#success'
