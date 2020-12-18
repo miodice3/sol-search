@@ -4,6 +4,7 @@ class CreateAssets < ActiveRecord::Migration[6.0]
       t.integer :owner_id
       t.string :utility
       t.string :zone
+      t.integer :class_number
       t.string :meter_type
       t.string :state
       t.string :country
