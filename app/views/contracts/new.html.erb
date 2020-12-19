@@ -1,7 +1,14 @@
+this will need to retrieve locations total capacity and show each approved contract amount, and then display the balance left available for proposal<br>
 <%= form_with model: @contract do |f| %>
-    <%= f.label :utility %>
-    <%= f.text_field :utility %>
+    <%= f.label :annual_capacity_requested_in_kwh %>
+    <%= f.text_field :capacity %>
     <br>
-    <%= f.submit %>
+    <%= f.label :term_in_months %>
+    <%= f.text_field :term %>
+    <br>
+    <%= f.label :percentage_repayment_rate %>
+    <%= f.text_field :rate %><br>
+    *you plan to pay $xx back to the owner for each $100 recieved in bill credits
+    <br>
+    <%= f.submit "Submit proposal to owner"%>
 <% end %>
-

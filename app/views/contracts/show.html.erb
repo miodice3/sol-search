@@ -1,0 +1,22 @@
+<h1>Selected Contract</h1>
+
+Location Owner: <%= @contract.owner.name %><br>
+Consumer Name: <%= @contract.consumer.name %><br>
+Location Name: <%= @contract.asset.name %><br>
+
+<% if @contract.status == "Proposed" %>
+    <p style="color:gray">Contract Status: <%= @contract.status %><br>
+    Contracted Amount: <%= @contract.capacity %> kWh<br>
+    Contracted Term: <%= @contract.term %> months<br>
+    Contracted Repayment Rate: <%= @contract.rate %>%<br></p>
+<% elsif @contract.status == "Accepted" %>
+    <p style="color:blue">Contract Status: <%= @contract.status %><br>
+    Contracted Amount: <%= @contract.capacity %> kWh<br>
+    Contracted Term: <%= @contract.term %> months<br>
+    Contracted Repayment Rate: <%= @contract.rate %>%<br></p>
+<% elsif @contract.status == "Declined" %>
+    <p style="color:red">Contract Status: <%= @contract.status %><br>
+    Contracted Amount: <%= @contract.capacity %> kWh<br>
+    Contracted Term: <%= @contract.term %> months<br>
+    Contracted Repayment Rate: <%= @contract.rate %>%<br></p>
+<% end %>

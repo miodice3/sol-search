@@ -12,7 +12,8 @@
         <%= link_to "My Profile", user_path(logged_in?) %><br>
         <%= link_to "My Solar Locations", '/locations/mylocations' %><br>
         <%= link_to "Browse Solar Locations", locations_path %><br>
-        <%= link_to "My Contracts", user_path(logged_in?) %><br>
+        <%= link_to "My Consumer Contracts", '/contracts/consumer' %><br>
+        <%= link_to "My Owner Contracts", '/contracts/owner' %><br>
         <%= link_to "Sign Out", logout_path %><br>
         <br><br>
       <% else %>

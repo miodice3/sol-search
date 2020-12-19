@@ -10,15 +10,16 @@ class LocationsController < ApplicationController
     end
 
     def create
-        byebug
         @location = Location.create(location_params) do |l|
             l.owner_id = session[:user_id]
         end
+        # need to do error handling and re-direct user back to form if they fill out and it fails
         redirect_to location_path(@location)
     end
 
     def show
         @location = Location.find_by(id: params[:id])
+        session[:last_location] = @location.id
     end
 
     def index

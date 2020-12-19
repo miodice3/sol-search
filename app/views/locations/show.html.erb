@@ -7,7 +7,7 @@
 <br><br>
 
 <% if logged_in_id? != @location.owner_id %>
-Click to submit PPA / Contract proposal to owner
+<%= link_to "Submit PPA / Contract proposal to owner", new_contract_path %>
 <% else %>
 Click here to edit your locations information (have not made edit form yet)
 <% end %>
