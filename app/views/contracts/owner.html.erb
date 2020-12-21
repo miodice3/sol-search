@@ -6,8 +6,8 @@ You don't have any contracts to view.
     <% @contracts.each do |c| %>
     Location Owner: <%= c.owner.name %><br>
     Consumer Name: <%= c.consumer.name %><br>
-    Location Name: <%= c.asset.name %><br>
-
+    Location Name: <%= c.location.name %><br>
+    
         <% if c.status == "Proposed" %>
             <p style="color:gray">Contract Status: <%= c.status %><br>
             Contracted Amount: <%= c.capacity %> kWh<br>
@@ -25,6 +25,7 @@ You don't have any contracts to view.
             Contracted Repayment Rate: <%= c.rate %>%<br></p>
         <% end %>
 
+    <%= link_to 'Click here to Accept or Decline', contract_path(c) %><br><br><br>
     <% end %>
 
 <% end %>

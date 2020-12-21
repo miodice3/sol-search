@@ -19,10 +19,7 @@ class SessionsController < ApplicationController
     end
 
     def login_post
-
-        # @user = User.find_by(email: params[:email])
         @user = User.find_by(email: user_params[:email])
-        #byebug
         if !!@user && @user.authenticate(user_params[:password])
             session[:user_id] = @user.id
             redirect_to success_path

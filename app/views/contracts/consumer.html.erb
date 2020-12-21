@@ -6,7 +6,8 @@ You don't have any contracts to view.
     <% @contracts.each do |c| %>
     Location Owner: <%= c.owner.name %><br>
     Consumer Name: <%= c.consumer.name %><br>
-    Location Name: <%= c.asset.name %><br>
+    Location Name: <%= c.location.name %><br>
+
 
         <% if c.status == "Proposed" %>
             <p style="color:gray">Contract Status: <%= c.status %><br>

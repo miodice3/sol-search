@@ -2,10 +2,23 @@
     <%= @location.name %> - Owners Name: <%= @location.owner.name %><br>
     <%= @location.utility %>, <%= @location.zone %>, meter type: <%= @location.meter_type %><br>
     <%= @location.state %>, <%= @location.country %><br>
-    <%= @location.annual_capacity %> kWh/year<br>
+    Total Estimated Capacity: <%= @location.annual_capacity %> kWh/year<br>
+    The total contracted capacity is: <%= @location.contracts.sum(:capacity)%>
     The Owner has marked this as: <%= @location.status %><br>
 <br><br>
 
+You currently have <%= @location.contracts.Accepted.sum(:capacity) %> kWh / year under contract at this location.<br>
+You currently have pending offers for <%= @location.contracts.Proposed.sum(:capacity) %> kWh / year on this location.<br><br>
+
+<% if @location.contracts %>
+This locations current contracts are:<br>
+    <% @location.contracts.each do |c| %>
+        Consumers Name: <%=c.consumer.name%> - <%= c.capacity %> kWh / year, STATUS: <%=c.status%> <br>
+    <% end %>
+<% end %>
+
+
+<br><br>
 <% if logged_in_id? != @location.owner_id %>
 <%= link_to "Submit PPA / Contract proposal to owner", new_contract_path %>
 <% else %>

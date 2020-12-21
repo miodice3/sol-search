@@ -26,6 +26,10 @@ class LocationsController < ApplicationController
         @locations = Location.all
     end
 
+    # def update
+    #     byebug
+    # end
+
     private
 
     def location_params

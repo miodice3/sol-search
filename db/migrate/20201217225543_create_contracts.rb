@@ -3,7 +3,7 @@ class CreateContracts < ActiveRecord::Migration[6.0]
     create_table :contracts do |t|
       t.integer :owner_id
       t.integer :consumer_id
-      t.integer :asset_id
+      t.integer :location_id
       t.string :status
       t.integer :capacity
       t.integer :term

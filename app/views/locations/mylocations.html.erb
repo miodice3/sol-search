@@ -4,7 +4,8 @@
     <%= l.name %> - Owners Name: <%= l.owner.name %><br>
     <%= l.utility %>, <%= l.zone %>, meter type: <%= l.meter_type %><br>
     <%= l.state %>, <%= l.country %><br>
-    <%= l.annual_capacity %> kWh/year<br>
+    Total Estimated Capacity: <%= l.annual_capacity %> kWh/year<br>
+
     The Owner has marked this as: <%= l.status %><br>
     <% if logged_in_id? == l.owner_id %>
             <%= link_to "Click to see individual location and edit", location_path(l.id) %><br>

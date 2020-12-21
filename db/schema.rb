@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_12_18_032740) do
   create_table "contracts", force: :cascade do |t|
     t.integer "owner_id"
     t.integer "consumer_id"
-    t.integer "asset_id"
+    t.integer "location_id"
     t.string "status"
     t.integer "capacity"
     t.integer "term"
