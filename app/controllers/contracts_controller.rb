@@ -23,15 +23,16 @@ class ContractsController < ApplicationController
 
     def consumer
         #byebug
-        @contracts = Contract.find_by(consumer_id: session[:user_id])
-        redirect_to contract_path (@contracts)
+        @contracts = Contract.where(consumer_id: session[:user_id])
+        #byebug
+        #redirect_to contracts_path #(@contracts)
     end
 
     def owner
         #byebug
-        @contracts = Contract.find_by(owner_id: session[:user_id])
-        byebug #this evaluates to nil, and crashes redirect. should be directed to blank page with disclaimer, no owner contracts
-        redirect_to contract_path (@contracts)
+        @contracts = Contract.where(owner_id: session[:user_id])
+        #byebug #this evaluates to nil, and crashes redirect. should be directed to blank page with disclaimer, no owner contracts
+        #redirect_to contracts_path (@contracts)
     end
 
     private
