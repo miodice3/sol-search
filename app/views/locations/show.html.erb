@@ -3,7 +3,7 @@
     <%= @location.utility %>, <%= @location.zone %>, meter type: <%= @location.meter_type %><br>
     <%= @location.state %>, <%= @location.country %><br>
     Total Estimated Capacity: <%= @location.annual_capacity %> kWh/year<br>
-    The total contracted capacity is: <%= @location.contracts.sum(:capacity)%>
+
     The Owner has marked this as: <%= @location.status %><br>
 <br><br>
 
