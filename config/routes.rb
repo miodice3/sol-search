@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :contracts
   resources :locations
   
-  
+  get '/feedback', to: 'application#feedback'
+  get '/aboutus', to: 'application#aboutus'
   
   get '/success', to: 'sessions#success'
   get '/logout', to: 'sessions#logout'
