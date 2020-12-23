@@ -13,7 +13,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        # @user = User.find_by(id: session[:user_id])
+        is_authorized
+
         find_user
     end
 

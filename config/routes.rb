@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/contracts/consumer', to: 'contracts#consumer'
   get '/contracts/owner', to: 'contracts#owner'
 
+  root "application#aboutus"
+
   resources :users
   resources :contracts
   resources :locations

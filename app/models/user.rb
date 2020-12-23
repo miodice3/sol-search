@@ -7,7 +7,7 @@ class User < ApplicationRecord
     validates :password, :presence =>true, :confirmation =>true
     validates_confirmation_of :password, :message => "Passwords should match"
     
-    validates :password, length: { in: 2..20 }
+    validates :password, length: { in: 2..50 }
 
     has_many :feedbacks
 
