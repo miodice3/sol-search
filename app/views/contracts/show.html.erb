@@ -9,7 +9,7 @@ Location Name: <%= @contract.location.name %><br>
 <% if @contract.status == "Proposed" && @contract.created_at == @contract.updated_at %>
     <p style="color:gray">Contract Status: <%= @contract.status %><br>
     Contracted Amount: <%= @contract.capacity %> kWh<br>
-    Contracted Term: <%= @contract.term %> months<br>
+    Contracted Term: <%= @contract.term %> years<br>
     Contracted Repayment Rate: <%= @contract.rate %>%<br></p>
 
     <% if @contract.owner.id == current_user%>
@@ -35,12 +35,12 @@ Location Name: <%= @contract.location.name %><br>
 <% elsif @contract.status == "Accepted" %>
     <p style="color:blue">Contract Status: <%= @contract.status %><br>
     Contracted Amount: <%= @contract.capacity %> kWh<br>
-    Contracted Term: <%= @contract.term %> months<br>
+    Contracted Term: <%= @contract.term %> years<br>
     Contracted Repayment Rate: <%= @contract.rate %>%<br></p>
 <% elsif @contract.status == "Declined" %>
     <p style="color:red">Contract Status: <%= @contract.status %><br>
     Contracted Amount: <%= @contract.capacity %> kWh<br>
-    Contracted Term: <%= @contract.term %> months<br>
+    Contracted Term: <%= @contract.term %> years<br>
     Contracted Repayment Rate: <%= @contract.rate %>%<br></p>
 <% end %>
 

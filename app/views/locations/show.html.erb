@@ -8,11 +8,11 @@
     The Owner has marked this as: <%= @location.status %><br>
 <br><br>
 
-You currently have <%= @location.contracts.Accepted.sum(:capacity) %> kWh / year under contract at this location.<br>
-You currently have pending offers for <%= @location.contracts.Proposed.sum(:capacity) %> kWh / year on this location.<br><br>
+Currently <%= @location.contracts.Accepted.sum(:capacity) %> kWh / year under contract at this location.<br>
+Currently ending offers for <%= @location.contracts.Proposed.sum(:capacity) %> kWh / year on this location.<br><br>
 
-<% if @location.contracts %>
-This locations current contracts are:<br>
+<% if @location.contracts.length > 0 %>
+This locations contracts are:<br>
     <% @location.contracts.each do |c| %>
         Consumers Name: <%=c.consumer.name%> - <%= c.capacity %> kWh / year, STATUS: <%=c.status%> - Ending: <%= c.end_date(c).strftime('%B %-d, %Y') %><br>
     <% end %>

@@ -1,5 +1,4 @@
 
-<% #byebug %>
 <% if @contracts.length == 0 %>
 You don't have any contracts to view.
 <% else %>
@@ -13,17 +12,17 @@ You don't have any contracts to view.
         <% if c.status == "Proposed" %>
             <p style="color:gray">Contract Status: <%= c.status %><br>
             Contracted Amount: <%= c.capacity %> kWh<br>
-            Contracted Term: <%= c.term %> months<br>
+            Contracted Term: <%= c.term %> years<br>
             Contracted Repayment Rate: <%= c.rate %>%<br></p>
         <% elsif c.status == "Accepted" %>
             <p style="color:blue">Contract Status: <%= c.status %><br>
             Contracted Amount: <%= c.capacity %> kWh<br>
-            Contracted Term: <%= c.term %> months<br>
+            Contracted Term: <%= c.term %> years<br>
             Contracted Repayment Rate: <%= c.rate %>%<br></p>
         <% elsif c.status == "Declined" %>
             <p style="color:red">Contract Status: <%= c.status %><br>
             Contracted Amount: <%= c.capacity %> kWh<br>
-            Contracted Term: <%= c.term %> months<br>
+            Contracted Term: <%= c.term %> years<br>
             Contracted Repayment Rate: <%= c.rate %>%</p>
         <% end %>
 

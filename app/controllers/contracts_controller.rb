@@ -5,9 +5,12 @@ class ContractsController < ApplicationController
     end
 
     def show
-        valid_contract
-        byebug
-        session[:last_contract] = @contract.id
+        if valid_contract == true && authorized_contract == true
+            session[:last_contract] = @contract.id
+        else
+            flash[:error] = "You are not authorized to see this contract"
+            redirect_to root_path
+        end
     end
 
     def create
@@ -21,21 +24,22 @@ class ContractsController < ApplicationController
     end
 
     def consumer
+        #return contracts based on ascending order with scope method, newest first.    
         @contracts = Contract.where(consumer_id: session[:user_id])
     end
 
     def owner
+        #return contracts based on ascending order with scope method, newest first.
         @contracts = Contract.where(owner_id: session[:user_id])
     end
 
     def update
-
-        if params[:id].to_i == session[:last_contract]
-            @contract = Contract.find_by(id: session[:last_contract])
+        if valid_contract && owner_contract && valid_origin
+            #@contract = Contract.find_by(id: session[:last_contract])
             @contract.update(update_params)
+            #NEED TO PUT VALIDATIONS IN CLASS FOR CONTRACT TO REJECT INVALID OPTIONS
             redirect_to contract_path(@contract)
         end
-
     end
 
     private
@@ -49,11 +53,23 @@ class ContractsController < ApplicationController
     end
 
     def valid_contract
-        byebug
-        if !@contract=Contract.find_by(id: params[:id])
-            redirect_to root_path
+        if !@contract=Contract.find_by(id: params[:id]) 
+            false
+        else
+            true
         end
-        byebug
+    end
+
+    def authorized_contract
+        @contract.owner_id == session[:user_id] || @contract.consumer_id == session[:user_id]
+    end
+
+    def owner_contract
+        @contract.owner_id == session[:user_id]
+    end
+
+    def valid_origin
+        params[:id].to_i == session[:last_contract]
     end
 
 end

@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
     end
 
     def require_login
-        #byebug
         unless current_user
             flash[:error] = "You must be logged in to access this section"
             redirect_to root_path
