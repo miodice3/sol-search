@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
       
       <div class="navbar">
-      <% if logged_in? %>
+      <% if current_user %>
     <div class="dropdown">
       <button class="dropbtn">options 
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <%= link_to "My Profile", user_path(logged_in?) %>
+        <%= link_to "My Profile", user_path(current_user) %>
         <a href= "/locations/mylocations">My Solar</a>
         <%= link_to "Browse Solar Locations", locations_path %>
         <a href="/contracts/consumer">Consumption Contracts</a>

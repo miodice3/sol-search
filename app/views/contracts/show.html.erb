@@ -12,7 +12,7 @@ Location Name: <%= @contract.location.name %><br>
     Contracted Term: <%= @contract.term %> months<br>
     Contracted Repayment Rate: <%= @contract.rate %>%<br></p>
 
-    <% if @contract.owner.id == logged_in_id?%>
+    <% if @contract.owner.id == current_user%>
     Please read carefully before proceeding:<br>
     A) If you decide to negotiate with the consumer, please contact them using their email, decline this offer & have them resubmit a new offer based on agreed terms.<br>
     Consumers Email: <%= @contract.consumer.email %><br>

@@ -1,10 +1,11 @@
 module ApplicationHelper
-    def logged_in?
+
+    def current_user
         session[:user_id]
     end
 
-    def logged_in_id?
-        session[:user_id]
+    def find_user
+        @user = User.find_by(id: logged_in_id?)
     end
     
 end

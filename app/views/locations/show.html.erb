@@ -20,7 +20,7 @@ This locations current contracts are:<br>
 
 
 <br><br>
-<% if logged_in_id? != @location.owner_id %>
+<% if current_user != @location.owner_id %>
 <%= link_to "Submit PPA / Contract proposal to owner", new_contract_path %>
 <% else %>
 Click here to edit your locations information (have not made edit form yet)

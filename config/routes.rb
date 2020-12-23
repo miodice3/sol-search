@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   
   get '/aboutus', to: 'application#aboutus'
   
-  get '/success', to: 'sessions#success'
   get '/logout', to: 'sessions#logout'
 
   get '/login', to: 'sessions#login'
