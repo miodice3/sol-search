@@ -23,10 +23,4 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    def is_authorized
-        if params[:id].to_i != session[:user_id]
-            redirect_to root_path
-        end
-    end
-
 end

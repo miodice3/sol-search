@@ -5,7 +5,8 @@ class ContractsController < ApplicationController
     end
 
     def show
-        @contract=Contract.find_by(id: params[:id])
+        valid_contract
+        byebug
         session[:last_contract] = @contract.id
     end
 
@@ -45,6 +46,14 @@ class ContractsController < ApplicationController
     
     def update_params
         params.require(:contract).permit(:status)
+    end
+
+    def valid_contract
+        byebug
+        if !@contract=Contract.find_by(id: params[:id])
+            redirect_to root_path
+        end
+        byebug
     end
 
 end

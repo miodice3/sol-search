@@ -12,4 +12,5 @@ class Location < ApplicationRecord
 
     #fayette=Location.last
     #fayette.owner= this returns entire user instance, working well.
+    
 end

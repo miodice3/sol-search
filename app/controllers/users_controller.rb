@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-    #users/new & create, edit update destroy < add here.
-    #helper method session[:user_id] = @user.id
 
     def create #creating new user
         @user = User.new(user_params)
@@ -13,8 +11,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        is_authorized
-
+        user_authorized
         find_user
     end
 
@@ -22,6 +19,13 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def user_authorized
+        if params[:id].to_i != session[:user_id]
+            flash[:error] = "You are not authorized to access this profile"
+            redirect_to root_path
+        end
     end
 
 end

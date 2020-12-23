@@ -1,0 +1,35 @@
+<%= form_with model:@location do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br><br>
+    <%= f.label :utility %>
+    <%= f.text_field :utility %>
+    <br><br>
+    <%= f.label :utility_load_zone %>
+    <%= f.text_field :zone %><br>
+    <br><br>
+    <%= f.label :meter_type %>
+    <%= f.text_field :meter_type %><br>
+    <br><br>
+    <%= f.label :state %>
+    <%= f.select :state, us_states %>
+    <br><br>
+    <%= f.label :country %>
+    <%= f.text_field :country %>
+    <br><br>
+    <%= f.label :Estimate_annual_capacity_in_killowatt_hours %>
+    <%= f.text_field :annual_capacity %>
+    <br><br>
+    <%= f.label :status %>
+
+    <%= f.select :status, ["proposed - contingent on finding PPA", "under construction, capacity available and looking for PPA", "online, capacity available and looking for PPA", "online - no additional capacity available"] %>
+    <br><br>
+    <%= f.submit "Create New Location" %>
+<% end %>
+
+<br><br>
+<%= link_to "For MA clients looking for a hint on load zones, click here", "http://www.resonant.energy/mautilityloadzonemap" %>
+    <br><br>
+    Class 1 - 60kW or less<br>
+    Class 2 - more than 60 kW but less than or equal to 1 MW<br>
+    Class 3 - more than 1 MW but less than or equal to 2 MW<br><br>

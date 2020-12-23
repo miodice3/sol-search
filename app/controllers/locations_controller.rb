@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         @locations = @user.owned_assets
     end
-    
+
     def new
         @location = Location.new
     end
@@ -13,7 +13,6 @@ class LocationsController < ApplicationController
         @location = Location.create(location_params) do |l|
             l.owner_id = session[:user_id]
         end
-        # need to do error handling and re-direct user back to form if they fill out and it fails
         redirect_to location_path(@location)
     end
 
@@ -22,18 +21,40 @@ class LocationsController < ApplicationController
         session[:last_location] = @location.id
     end
 
+    def edit
+        edit_authorized
+        session[:last_location] = @location.id
+    end
+
+    def update
+        edit_authorized
+        if @location.update(location_params)
+            redirect_to location_path(@location)
+        else
+            render "locations/edit"
+        end
+    end
+
     def index
         @locations = Location.all
     end
-
-    # def update
-    #     byebug
-    # end
 
     private
 
     def location_params
         params.require(:location).permit(:name, :utility, :zone, :meter_type, :state, :country, :annual_capacity, :status)
+    end
+
+    def edit_authorized
+        if @location = Location.find_by(id: params[:id])
+            if @location.id != session[:last_location]
+                flash[:error] = "You are not authorized to edit this location"
+                redirect_to root_path
+            end
+        else
+            flash[:error] = "You are not authorized to edit this location"
+            redirect_to root_path
+        end
     end
 
 end
