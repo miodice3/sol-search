@@ -1,0 +1,20 @@
+<div class="heading">
+    <h3>Feedback Form</h3>
+</div>
+
+<div class="container">
+<%= form_with model:@feedback do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :feedback %>
+    <%= f.text_field :feedback %>
+
+    <%= f.submit %>
+<% end %>
+</div>
+
+
+<div class="heading">
+    <h6>*Form will not accept more than 1000 characters</h6>
+</div>

@@ -7,23 +7,30 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
-
-<div class="topnav">
-  <% if logged_in? %>
-    <%= link_to "My Profile", user_path(logged_in?) %>
-    <a href= "/locations/mylocations">My Solar</a>
-    <%= link_to "Browse Solar Locations", locations_path %>
-    <a href="/contracts/consumer">Consumption Contracts</a>
-    <a href="/contracts/owner">Producer Contracts</a>
-    <a class="active" href="/aboutus">About Us</a>
-    <a href="/feedback">Feedback</a>
-    <%= link_to "Sign Out", logout_path %><br>
-  <% else %>
-    <%= link_to "Click here to Sign Up", signup_path %>
-    <%= link_to "Already have an account? Click here to Log In", login_path %>
-    <br><br>
-  <% end %>
-</div>
+      
+      <div class="navbar">
+      <% if logged_in? %>
+    <div class="dropdown">
+      <button class="dropbtn">options 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <%= link_to "My Profile", user_path(logged_in?) %>
+        <a href= "/locations/mylocations">My Solar</a>
+        <%= link_to "Browse Solar Locations", locations_path %>
+        <a href="/contracts/consumer">Consumption Contracts</a>
+        <a href="/contracts/owner">Producer Contracts</a>
+        <a class="active" href="/aboutus">About Us</a>
+        <a href="/feedbacks/new">Feedback</a>
+        <%= link_to "Sign Out", logout_path %><br>
+      <% else %>
+        <%= link_to "Click here to Sign Up", signup_path %>
+        <%= link_to "Already have an account? Click here to Log In", login_path %>
+        <br><br>
+      <% end %>
+      </div>
+    </div>
+    </div>
 
   </head>
 

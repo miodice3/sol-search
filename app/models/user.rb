@@ -9,6 +9,7 @@ class User < ApplicationRecord
     
     validates :password, length: { in: 2..20 }
 
+    has_many :feedbacks
 
     has_many :owner_contracts, foreign_key: :owner_id, class_name: 'Contract'
     has_many :consumer_contracts, foreign_key: :consumer_id, class_name: 'Contract'

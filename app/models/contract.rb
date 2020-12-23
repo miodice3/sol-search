@@ -8,5 +8,7 @@ class Contract < ApplicationRecord
     scope :Proposed, -> { where(status: "Proposed") }
     scope :Accepted, -> { where(status: "Accepted") }
     scope :Declined, -> { where(status: "Declined") }
+    #scope method for kWh* term of contract for total kWh fascilitated
+    
 
 end

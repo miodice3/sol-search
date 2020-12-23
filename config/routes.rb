@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   resources :users
   resources :contracts
   resources :locations
+
+  get '/feedbacks/thankyou', to: 'feedbacks#thankyou'
+  resources :feedbacks
   
-  get '/feedback', to: 'application#feedback'
   get '/aboutus', to: 'application#aboutus'
   
   get '/success', to: 'sessions#success'
