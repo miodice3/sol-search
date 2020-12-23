@@ -9,6 +9,10 @@ class Contract < ApplicationRecord
     scope :Accepted, -> { where(status: "Accepted") }
     scope :Declined, -> { where(status: "Declined") }
     #scope method for kWh* term of contract for total kWh fascilitated
-    
+
+    def end_date(c)
+        finish = c.created_at + (c.term*365).day
+    end
+
 
 end

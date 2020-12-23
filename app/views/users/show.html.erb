@@ -3,3 +3,4 @@
 User Profile ID: <%= @user.id %><br>
 Name: <%= @user.name %><br>
 Email: <%= @user.email %><br><br><br>
+Member Since: <%= @user.created_at.strftime('%B %-d, %Y') %>

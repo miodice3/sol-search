@@ -1,14 +1,37 @@
 <h1>Contract Details</h1>
 
+Submitted: <%= @contract.created_at.strftime('%B %-d, %Y') %><br>
+End date: <%= @contract.end_date(@contract).strftime('%B %-d, %Y') %><br>
 Location Owner: <%= @contract.owner.name %><br>
 Consumer Name: <%= @contract.consumer.name %><br>
 Location Name: <%= @contract.location.name %><br>
 
-<% if @contract.status == "Proposed" %>
+<% if @contract.status == "Proposed" && @contract.created_at == @contract.updated_at %>
     <p style="color:gray">Contract Status: <%= @contract.status %><br>
     Contracted Amount: <%= @contract.capacity %> kWh<br>
     Contracted Term: <%= @contract.term %> months<br>
     Contracted Repayment Rate: <%= @contract.rate %>%<br></p>
+
+    <% if @contract.owner.id == logged_in_id?%>
+    Please read carefully before proceeding:<br>
+    A) If you decide to negotiate with the consumer, please contact them using their email, decline this offer & have them resubmit a new offer based on agreed terms.<br>
+    Consumers Email: <%= @contract.consumer.email %><br>
+    Next, Decline.  This action cannot be undone.<br><br>
+
+    B) You may decline and not respond to the offer by selecting decline.<br><br>
+
+    C) You may accept the offer.  This is not a legally binding contract, please email the consumer to contract the agreement based on the offer terms.<br><br>
+
+        <%= form_with model: @contract do |f| %>
+            <%= f.label :status %>
+            <%= f.select :status, ["Please Select an Option", "Accepted", "Declined"] %><br><br>
+            <br>
+            <%= f.submit "Click to Finalize"%>
+        <% end %>
+    <% end %>
+
+
+
 <% elsif @contract.status == "Accepted" %>
     <p style="color:blue">Contract Status: <%= @contract.status %><br>
     Contracted Amount: <%= @contract.capacity %> kWh<br>
@@ -21,20 +44,3 @@ Location Name: <%= @contract.location.name %><br>
     Contracted Repayment Rate: <%= @contract.rate %>%<br></p>
 <% end %>
 
-<% if @contract.owner.id == logged_in_id?%>
-Please read carefully before proceeding:<br>
-A) If you decide to negotiate with the consumer, please contact them using their email, decline this offer & have them resubmit a new offer based on agreed terms.<br>
-Consumers Email: <%= @contract.consumer.email %><br>
-Next, Decline.  This action cannot be undone.<br><br>
-
-B) You may decline and not respond to the offer by selecting decline.<br><br>
-
-C) You may accept the offer.  This is not a legally binding contract, please email the consumer to contract the agreement based on the offer terms.<br><br>
-
-<%= form_with model: @contract do |f| %>
-    <%= f.label :status %>
-    <%= f.select :status, ["Please Select an Option", "Accepted", "Declined"] %><br><br>
-    <br>
-    <%= f.submit "Click to Finalize"%>
-<% end %>
-<% end %>

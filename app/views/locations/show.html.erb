@@ -1,5 +1,6 @@
 
     <%= @location.name %> - Owners Name: <%= @location.owner.name %><br>
+    Location created: <%= @location.created_at.strftime('%B %-d, %Y') %><br>
     <%= @location.utility %>, <%= @location.zone %>, meter type: <%= @location.meter_type %><br>
     <%= @location.state %>, <%= @location.country %><br>
     Total Estimated Capacity: <%= @location.annual_capacity %> kWh/year<br>
@@ -13,7 +14,7 @@ You currently have pending offers for <%= @location.contracts.Proposed.sum(:capa
 <% if @location.contracts %>
 This locations current contracts are:<br>
     <% @location.contracts.each do |c| %>
-        Consumers Name: <%=c.consumer.name%> - <%= c.capacity %> kWh / year, STATUS: <%=c.status%> <br>
+        Consumers Name: <%=c.consumer.name%> - <%= c.capacity %> kWh / year, STATUS: <%=c.status%> - Ending: <%= c.end_date(c).strftime('%B %-d, %Y') %><br>
     <% end %>
 <% end %>
 

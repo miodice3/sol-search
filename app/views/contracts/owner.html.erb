@@ -4,6 +4,8 @@
 You don't have any contracts to view.
 <% else %>
     <% @contracts.each do |c| %>
+    Submitted: <%= c.created_at.strftime('%B %-d, %Y') %><br>
+    End date: <%= c.end_date(c).strftime('%B %-d, %Y') %><br>
     Location Owner: <%= c.owner.name %><br>
     Consumer Name: <%= c.consumer.name %><br>
     Location Name: <%= c.location.name %><br>
@@ -22,10 +24,10 @@ You don't have any contracts to view.
             <p style="color:red">Contract Status: <%= c.status %><br>
             Contracted Amount: <%= c.capacity %> kWh<br>
             Contracted Term: <%= c.term %> months<br>
-            Contracted Repayment Rate: <%= c.rate %>%<br></p>
+            Contracted Repayment Rate: <%= c.rate %>%</p>
         <% end %>
 
-    <%= link_to 'Click here to Accept or Decline', contract_path(c) %><br><br><br>
+    <%= link_to 'See Details', contract_path(c) %><br><br><br>
     <% end %>
 
 <% end %>
