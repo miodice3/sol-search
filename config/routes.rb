@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :contracts
   resources :locations
 
+  # scope '/admin', module: 'admin' do
+  #   resources :stats, only: [:index]
+  # end 
+
   get '/feedbacks/thankyou', to: 'feedbacks#thankyou'
   resources :feedbacks
   
