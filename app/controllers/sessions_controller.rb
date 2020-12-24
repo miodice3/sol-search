@@ -5,9 +5,6 @@ class SessionsController < ApplicationController
         @user = User.new
     end
 
-    def success
-    end
-
     def googleAuth
         @user = User.find_or_create_from_omniauth(auth)
         session[:user_id] = @user.id

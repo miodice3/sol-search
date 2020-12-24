@@ -24,20 +24,16 @@ class ContractsController < ApplicationController
     end
 
     def consumer
-        #return contracts based on ascending order with scope method, newest first.    
-        @contracts = Contract.where(consumer_id: session[:user_id])
+        @contracts = Contract.where(consumer_id: session[:user_id]).order('contracts.updated_at DESC')
     end
 
     def owner
-        #return contracts based on ascending order with scope method, newest first.
-        @contracts = Contract.where(owner_id: session[:user_id])
+        @contracts = Contract.where(owner_id: session[:user_id]).order('contracts.updated_at DESC')
     end
 
     def update
         if valid_contract && owner_contract && valid_origin
-            #@contract = Contract.find_by(id: session[:last_contract])
             @contract.update(update_params)
-            #NEED TO PUT VALIDATIONS IN CLASS FOR CONTRACT TO REJECT INVALID OPTIONS
             redirect_to contract_path(@contract)
         end
     end
