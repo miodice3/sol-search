@@ -38,6 +38,18 @@ class ContractsController < ApplicationController
         end
     end
 
+    def index
+        # byebug
+        if params[:location_id] #location's contracts, route ok
+          @contracts = Location.find(params[:location_id]).contracts
+        else
+            byebug #this needs to not be here, redirect unauthorized.
+          @contracts = Contract.all
+        #   flash[:error] = "You are not authorized to see this contract"
+        #   redirect_to root_path
+        end
+      end
+
     private
 
     def contract_params
