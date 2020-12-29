@@ -8,7 +8,11 @@ class FeedbacksController < ApplicationController
         @feedback=Feedback.create(feedback_params) do |f|
             f.user_id = session[:user_id]
         end
-        redirect_to feedbacks_thankyou_path
+        if @feedback.save
+            redirect_to feedbacks_thankyou_path
+        else
+            render 'feedbacks/new'
+        end
     end
 
     def thankyou

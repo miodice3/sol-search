@@ -28,14 +28,6 @@ class ContractsController < ApplicationController
         else
             render new_contract_path
         end       
-        
-        # @contract = Contract.create(contract_params) do |c|
-        #     c.owner_id = Location.find_by(id: session[:last_location]).owner.id
-        #     c.consumer_id = session[:user_id]
-        #     c.location_id = Location.find_by(id: session[:last_location]).id #session[:last_location]
-        #     c.status = "Proposed"
-        # end
-        # redirect_to contract_path(@contract)
     end
 
     def consumer #no error handling
@@ -46,8 +38,7 @@ class ContractsController < ApplicationController
         @contracts = Contract.where(owner_id: session[:user_id]).order('contracts.updated_at DESC')
     end
 
-    def update
-        # byebug
+    def update #error validations working
         if valid_contract && owner_contract && valid_origin
             @contract.update(update_params)
             if @contract.valid?

@@ -1,32 +1,37 @@
 class LocationsController < ApplicationController
 
-    def mylocations
+    def mylocations #no error handling
         @user = User.find_by(id: session[:user_id])
         @locations = @user.owned_assets
     end
 
-    def new
+    def new #no error handling
         @location = Location.new
     end
 
-    def create
+    def create #error handling working
         @location = Location.create(location_params) do |l|
             l.owner_id = session[:user_id]
         end
-        redirect_to location_path(@location)
+        #byebug
+        if @location.save
+            redirect_to location_path(@location)
+        else
+            render "locations/new"
+        end
     end
 
-    def show
+    def show #no error handling
         @location = Location.find_by(id: params[:id])
         session[:last_location] = @location.id
     end
 
-    def edit
+    def edit #no error handling
         edit_authorized
         session[:last_location] = @location.id
     end
 
-    def update
+    def update #error handling working
         edit_authorized
         if @location.update(location_params)
             redirect_to location_path(@location)
@@ -35,7 +40,7 @@ class LocationsController < ApplicationController
         end
     end
 
-    def index
+    def index #no error handling
         @locations = Location.all
     end
 
