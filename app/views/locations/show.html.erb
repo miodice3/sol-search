@@ -23,5 +23,6 @@ This locations contracts are:<br>
 <% if current_user != @location.owner_id %>
     <%= link_to "Submit PPA / Contract proposal to owner", new_contract_path %>
 <% else %>
-    <%= link_to "Click here to edit your locations information", edit_location_path(@location.id) %>
+    <%= link_to "Click here to edit your locations information", edit_location_path(@location.id) %><br>
+    <%= link_to "Click to see all contracts for this location", location_contracts_path(@location) %>
 <% end %>

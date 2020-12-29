@@ -10,7 +10,7 @@ Or, please fill out the form below if you do not want to authenticate with googl
         <div id="error_explanation">
             <h2>
             <%= pluralize(@user.errors.count, "error") %>
-            prohibited this post from being saved:
+            prohibited this user from being created:
             </h2>
             <ul>
             <% @user.errors.full_messages.each do |msg| %>

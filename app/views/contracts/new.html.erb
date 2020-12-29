@@ -1,5 +1,22 @@
 this will need to retrieve locations total capacity and show each approved contract amount, and then display the balance left available for proposal<br>
 <%= form_with model: @contract do |f| %>
+
+<% if @contract.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+            <%= pluralize(@contract.errors.count, "error") %>
+            prohibited this contract from being submitted:
+            </h2>
+            <ul>
+            <% @contract.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+
+
     <%= f.label :annual_capacity_requested_in_kwh %>
     <%= f.text_field :capacity %>
     <br>

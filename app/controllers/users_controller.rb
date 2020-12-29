@@ -11,7 +11,7 @@ class UsersController < ApplicationController
             end
     end
 
-    def show
+    def show #no error handling
         user_authorized
         find_user
     end

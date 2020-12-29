@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     # nested resource for contracts
     resources :contracts, only: [:new, :show, :index]
   end
+#for new, look the nested routes up and plug into <%= link_to "add contract" new_catagory_item_path(c) %>
+#
 
   get '/feedbacks/thankyou', to: 'feedbacks#thankyou'
   resources :feedbacks

@@ -25,7 +25,11 @@ You don't have any contracts to view.
             Contracted Term: <%= c.term %> months<br>
             Contracted Repayment Rate: <%= c.rate %>%<br></p>
         <% end %>
-
+<br>
+    <%= link_to "click here for individual details", location_contract_path(@location, c)%>
+<br>
     <% end %>
 
 <% end %>
+
+<%= link_to "click to create a new contract for this location", new_location_contract_path(@location) %>
