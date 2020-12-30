@@ -18,6 +18,10 @@ a {
     text-decoration: none;
 }
 
+.center-font {
+    text-align: center;
+}
+
 .logotext {
     text-align: center;
     font-family: 'Megrim', cursive;
