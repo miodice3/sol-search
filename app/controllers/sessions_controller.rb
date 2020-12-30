@@ -1,23 +1,21 @@
 class SessionsController < ApplicationController
-    #login, create, destroy, success for testing only, delete.     < change to this
 
-    def signup #no error handling
+    def signup
         @user = User.new
     end
 
-    def googleAuth #no error handling
+    def googleAuth
         @user = User.find_or_create_from_omniauth(auth)
         session[:user_id] = @user.id
         redirect_to root_path
     end
 
-    def login #no error handling
+    def login
         @user = User.new
     end
 
     def login_post #rendered error message if user or password not found
         @user = User.find_by(email: user_params[:email])
-        #byebug
         if !!@user && @user.authenticate(user_params[:password])
             session[:user_id] = @user.id
             redirect_to root_path
@@ -28,7 +26,7 @@ class SessionsController < ApplicationController
         end
     end
 
-    def logout #no error handling
+    def logout
         session.delete :user_id
         redirect_to root_path
     end

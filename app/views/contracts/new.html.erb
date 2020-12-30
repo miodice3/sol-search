@@ -1,4 +1,4 @@
-this will need to retrieve locations total capacity and show each approved contract amount, and then display the balance left available for proposal<br>
+<h2>The Owner has up to <%=@location.annual_capacity-@location.contracts.Accepted.sum(:capacity) %> kWh per year available</h2>
 <%= form_with model: @contract do |f| %>
 
 <% if @contract.errors.any? %>

@@ -7,4 +7,6 @@ class Location < ApplicationRecord
     validates :annual_capacity, numericality: { only_integer: true }
     validates :state, length: { is: 2 }
 
+    scope :state, -> (state) { where("state = ?", state) }
+
 end

@@ -1,26 +1,24 @@
 class ContractsController < ApplicationController
-    
-    def new #no error handling
+
+    def new
         @contract=Contract.new
+        @location=Location.find_by(id: session[:last_location])
     end
 
-    def show #no error handling
-        # byebug
-        @contract = Contract.find_by(id: params[:id])
-        session[:last_contract] = @contract.id
-        # if valid_contract == true #&& authorized_contract == true
-        #     session[:last_contract] = @contract.id
-        # else
-        #     flash[:error] = "You are not authorized to see this contract"
-        #     redirect_to root_path
-        # end
+    def show
+        if valid_contract && authorized_contract
+            session[:last_contract] = @contract.id    
+        else
+            flash[:error] = "You are not authorized to see this contract"
+            redirect_to root_path
+        end
     end
 
-    def create #error validations working
+    def create
         @contract = Contract.create(contract_params) do |c|
             c.owner_id = Location.find_by(id: session[:last_location]).owner.id
             c.consumer_id = session[:user_id]
-            c.location_id = Location.find_by(id: session[:last_location]).id #session[:last_location]
+            c.location_id = Location.find_by(id: session[:last_location]).id
             c.status = "Proposed"
             end
         if @contract.valid?
@@ -30,27 +28,27 @@ class ContractsController < ApplicationController
         end       
     end
 
-    def consumer #no error handling
+    def consumer
         @contracts = Contract.where(consumer_id: session[:user_id]).order('contracts.updated_at DESC')
     end
 
-    def owner #no error handling
+    def owner
         @contracts = Contract.where(owner_id: session[:user_id]).order('contracts.updated_at DESC')
     end
 
-    def update #error validations working
+    def update
         if valid_contract && owner_contract && valid_origin
             @contract.update(update_params)
             if @contract.valid?
                 redirect_to contract_path(@contract)
             else
                 @contract.status = "Proposed"
-                render "contracts/show"#contract_path(@contract) #'contracts/edit' #contract_path(@contract)
+                render "contracts/show"
             end
         end
     end
 
-    def index #no error handling
+    def index
         if params[:location_id]
           @contracts = Location.find(params[:location_id]).contracts
           @location = Location.find(params[:location_id])

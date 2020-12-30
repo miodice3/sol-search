@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-#    skip_before_action :require_login, only: [:aboutus]
+
    before_action :require_login, except: [:aboutus, :login, :signup, :login_post, :googleAuth]
 
     def aboutus
