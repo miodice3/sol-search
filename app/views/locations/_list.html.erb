@@ -1,0 +1,45 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Css Responsive Flexbox Cards</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="heading">
+      <h1>All Locations</h1>
+    </div>
+    <div class="row">
+
+<% @locations.each do |l| %>
+      <div class="card">
+        <div class="card-header">
+            <h1><%= l.name %></h1><br>
+        </div>
+
+        <div class="card-body">
+            <p><% if l.annual_capacity-l.contracts.Accepted.sum(:capacity) >= 0 %>
+                <mark>There is an estimated excess supply of <%= l.annual_capacity-l.contracts.Accepted.sum(:capacity) %> kWh/year</mark><br>
+            <% end %>
+            
+            <p><%= l.utility %>, <%= l.zone %>, meter type: <%= l.meter_type %><br>
+            <%= l.state %>, <%= l.country %><br></p>
+
+    <p>The Owner has marked this as: <%= l.status %><br>
+    Total Estimated Capacity: <%= l.annual_capacity %> kWh/year<br>
+    The Owner has <%= l.contracts.Accepted.sum(:capacity) %> kWh / year under contract at this location.<br></p>
+</p>
+        <% if current_user == l.owner_id %>
+            <a href="<%= location_path(l.id) %>" class="btn">Edit Me</a>
+        <% else %>
+            <a href="<%= location_path(l.id) %>" class="btn">More Details</a>
+        <% end %>
+
+        </div>
+      </div>   
+
+<% end %>     
+    </div>
+  </div>
+    </div>
+</body>

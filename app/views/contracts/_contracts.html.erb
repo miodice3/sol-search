@@ -1,0 +1,31 @@
+<% if @contracts.length == 0 %>
+You don't have any contracts to view.
+<% else %>
+    <% @contracts.each do |c| %>
+        <% if c.status == "Proposed" %>
+            <p style="color:gray">
+        <% elsif c.status == "Accepted" %>
+            <p style="color:blue">
+        <% elsif c.status == "Declined" %>
+            <p style="color:red">
+        <% end %>
+    Contract Status: <%= c.status %><br>
+    Submitted: <%= c.created_at.strftime('%B %-d, %Y') %><br>
+    End date: <%= c.end_date(c).strftime('%B %-d, %Y') %><br>
+    Location Owner: <%= c.owner.name %><br>
+    Consumer Name: <%= c.consumer.name %><br>
+    Location Name: <%= c.location.name %><br>
+                
+    
+    Contracted Amount: <%= c.capacity %> kWh<br>
+    Contracted Term: <%= c.term %> years<br>
+    Contracted Repayment Rate: <%= c.rate %>%<br>
+    <% if @location %>
+        <%= link_to 'See Details', location_contract_path(@location, c)%>
+    <% else %>
+        <%= link_to 'See Details', contract_path(c) %></p>
+    <% end %>
+    <br><br><br>
+    <% end %>
+
+<% end %>

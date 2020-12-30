@@ -1,0 +1,31 @@
+        <h4>Please read carefully before proceeding, you have three options:</h4>
+        A) If you decide to negotiate with the consumer, please contact them using their email, decline this offer & have them resubmit a new offer based on agreed terms.<br>
+        <ol>
+        <li>Consumers Email: <%= @contract.consumer.email %></li>
+        <li>Next, Decline.  This action cannot be undone.</li>
+        </ol>
+        B) You may decline and not respond to the offer by selecting decline.<br><br>
+
+        C) You may accept the offer.  This is not a legally binding contract, please email the consumer to contract the agreement based on the offer terms.<br><br>
+
+            <%= form_with model: @contract do |f| %>
+
+                <% if @contract.errors.any? %>
+                    <div id="error_explanation">
+                        <h2>
+                        <%= pluralize(@contract.errors.count, "error") %>
+                        prohibited this contract from being submitted:
+                        </h2>
+                        <ul>
+                        <% @contract.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                        <% end %>
+                        </ul>
+                    </div>
+                <% end %>
+
+                <%= f.label :status %>
+                <%= f.select :status, ["Please Select an Option", "Accepted", "Declined"] %><br><br>
+                <br>
+                <%= f.submit "Click to Finalize"%>
+            <% end %>

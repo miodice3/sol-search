@@ -51,15 +51,12 @@ class ContractsController < ApplicationController
     end
 
     def index #no error handling
-        # if owner, show additional information, or link to view individual contract
-        if params[:location_id] #location's contracts, route ok
+        if params[:location_id]
           @contracts = Location.find(params[:location_id]).contracts
           @location = Location.find(params[:location_id])
         else
-          byebug #this needs to not be here, redirect unauthorized.
-          @contracts = Contract.all
-        #   flash[:error] = "You are not authorized to see this contract"
-        #   redirect_to root_path
+          flash[:error] = "You are not authorized to see this"
+          redirect_to root_path
         end
       end
 

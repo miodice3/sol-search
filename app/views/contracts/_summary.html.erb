@@ -1,0 +1,9 @@
+    Contract Status: <%= @contract.status %><br>
+    Submitted: <%= @contract.created_at.strftime('%B %-d, %Y') %><br>
+    End date: <%= @contract.end_date(@contract).strftime('%B %-d, %Y') %><br>
+    Location Owner: <%= @contract.owner.name %><br>
+    Consumer Name: <%= @contract.consumer.name %><br>
+    Location Name: <%= @contract.location.name %><br>
+    Contracted Amount: <%= @contract.capacity %> kWh<br>
+    Contracted Term: <%= @contract.term %> years<br>
+    Contracted Repayment Rate: <%= @contract.rate %>%<br></p>
