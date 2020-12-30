@@ -1,7 +1,7 @@
 <h2>Location Information</h2>
     <%= @location.name %> - Owners Name: <%= @location.owner.name %><br>
     Location created: <%= @location.created_at.strftime('%B %-d, %Y') %><br>
-    <%= @location.utility %>, <%= @location.zone %>, meter type: <%= @location.meter_type %><br>
+    <%= @location.utility %>, <%= @location.zone %>, rate type: <%= @location.meter_type %><br>
     <%= @location.state %>, <%= @location.country %><br>
     Total Estimated Capacity: <%= @location.annual_capacity %> kWh/year<br>
 

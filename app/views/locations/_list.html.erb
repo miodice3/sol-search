@@ -14,7 +14,7 @@
                         <mark>There is an estimated excess supply of <%= l.annual_capacity-l.contracts.Accepted.sum(:capacity) %> kWh/year</mark><br>
                         <% end %></p>
                 
-                        <p><%= l.utility %>, <%= l.zone %>, meter type: <%= l.meter_type %><br>
+                        <p><%= l.utility %>, <%= l.zone %>, rate type: <%= l.meter_type %><br>
                         <%= l.state %>, <%= l.country %><br></p>
 
                         <p>The Owner has marked this as: <%= l.status %><br>
