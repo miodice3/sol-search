@@ -9,4 +9,5 @@ class Location < ApplicationRecord
 
     scope :state, -> (state) { where("state = ?", state) }
 
+
 end

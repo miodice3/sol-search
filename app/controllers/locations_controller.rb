@@ -47,7 +47,7 @@ class LocationsController < ApplicationController
     private
 
     def location_params
-        params.require(:location).permit(:name, :utility, :zone, :rate_type, :state, :country, :annual_capacity, :status)
+        params.require(:location).permit(:name, :utility, :zone, :meter_type, :state, :country, :annual_capacity, :status)
     end
 
     def edit_authorized
