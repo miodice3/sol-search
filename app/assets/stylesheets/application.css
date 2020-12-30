@@ -14,25 +14,26 @@
  *= require_self
  */
 
-
-/*
-<head><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><style>body {
-    font-family: Arial, Helvetica, sans-serif;
+a {
+    text-decoration: none;
 }
-/*
-*/
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Public+Sans:ital,wght@1,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Megrim&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Megrim&display=swap');
 .logotext {
     text-align: center;
     font-family: 'Megrim', cursive;
     font-size: 65px;
     color: #2e86abff;
     padding-bottom: 5px;
+}
+
+h2 {
+    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .navbar {
@@ -42,11 +43,13 @@
 
 .navbar a {
     float: left;
-    font-size: 16px;
+    font-size: 18px;
     color: white;
     text-align: left;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .dropdown {
@@ -55,7 +58,7 @@
 }
 
 .dropdown .dropbtn {
-    font-size: 16px;
+    font-size: 20px;
     border: none;
     outline: none;
     color: white;
@@ -75,7 +78,7 @@
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 16px 8px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -95,97 +98,3 @@
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
-
-/*
-
-</style></head><head><meta name="viewport" content="width=device-width, initial-scale=1"><style>.heading {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 50px;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-}
- */
-
-
-/*
-* {box-sizing: border-box;}
-*/
-
-
-/*
-input[type=text],
-select,
-textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-}
-
-input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
-.container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-
-</style></head>@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-.isa_info,
-.isa_success,
-.isa_warning,
-.isa_error {
-    margin: 10px 0px;
-    padding: 12px;
-}
-
-.isa_info {
-    color: #00529B;
-    background-color: #BDE5F8;
-}
-
-.isa_success {
-    color: #4F8A10;
-    background-color: #DFF2BF;
-}
-
-.isa_warning {
-    color: #9F6000;
-    background-color: #FEEFB3;
-}
-
-.isa_error {
-    color: #D8000C;
-    background-color: #FFD2D2;
-}
-
-.isa_info i,
-.isa_success i,
-.isa_warning i,
-.isa_error i {
-    margin: 10px 22px;
-    font-size: 2em;
-    vertical-align: middle;
-}
-
-*/

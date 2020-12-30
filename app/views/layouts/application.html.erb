@@ -5,13 +5,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css2?family=Megrim&display=swap', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application',
+    'https://fonts.googleapis.com/css2?family=Megrim&display=swap', 
+    'https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap', 
+    media: 'all', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
   <header>
         <div class="logotext">
-          sol-search  
+          <%= link_to "sol-search", locations_path %>
         </div>
 
       <div class="navbar">
@@ -25,8 +28,8 @@
         <%= link_to "My Profile", user_path(current_user) %>
         <a href= "/locations/mylocations">My Solar</a>
         <%= link_to "Browse All Solar", locations_path %>
-        <a href="/contracts/consumer">Consumption Contracts</a>
-        <a href="/contracts/owner">Producer Contracts</a>
+        <a href="/contracts/consumer">Purchase Contracts</a>
+        <a href="/contracts/owner">Sale Contracts</a>
         <a class="active" href="/aboutus">About Us</a>
         <a href="/feedbacks/new">Feedback</a>
         <%= link_to "Sign Out", logout_path %><br>

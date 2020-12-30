@@ -1,4 +1,4 @@
-// Place all the styles related to the location controller here.
+// Place all the styles related to the Contract controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 * {
@@ -35,17 +35,17 @@ body {
 }
 
 .card {
-    width: 17%;
+    width: 25%;
     background: #fff;
     border: 1px solid #ccc;
     margin-bottom: 50px;
     transition: 0.3s;
 }
 
-.card-header {
+.card-header-contract {
     text-align: center;
     padding: 10px 0px;
-    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    background: linear-gradient(to right, #2e86ab, #2e86abe1);
     color: #fff;
 }
 
@@ -55,11 +55,11 @@ body {
     font-size: 18px;
 }
 
-.card-body .btn {
+.card-body .btn-contract {
     display: block;
     color: #fff;
     text-align: center;
-    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    background: linear-gradient(to right, #2e86ab, #2e86abe1);
     margin-top: 30px;
     text-decoration: none;
     padding: 10px 5px;
