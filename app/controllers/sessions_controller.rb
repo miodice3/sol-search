@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
     def login_post #rendered error message if user or password not found
         @user = User.find_by(email: user_params[:email])
         if !!@user && @user.authenticate(user_params[:password])
+            UserMailer.with(user: @user).welcome_email.deliver_now
             session[:user_id] = @user.id
             redirect_to root_path
         else
