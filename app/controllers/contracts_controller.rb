@@ -24,6 +24,7 @@ class ContractsController < ApplicationController
         if @contract.valid?
             redirect_to contract_path(@contract)
         else
+            @location=Location.find_by(id: session[:last_location])
             render new_contract_path
         end       
     end
