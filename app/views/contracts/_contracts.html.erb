@@ -18,12 +18,12 @@
                             End date: <%= c.end_date(c).strftime('%B %-d, %Y') %><br>
                             Location Owner: <%= c.owner.name %><br>
                             Consumer Name: <%= c.consumer.name %><br>
-                            Location Name: <%= c.location.name %><br></p>
+                            Location Name: <%= c.location.name %></p><br>
 
                             
                             <p>Contracted Amount: <%= c.capacity %> kWh<br>
                             Contracted Term: <%= c.term %> years<br>
-                            Contracted Repayment Rate: <%= c.rate %>%<br></p>
+                            Contracted Repayment Rate: <%= c.rate %>%</p><br>
                         
                             <% if @location %>
                                 <a href="<%= location_contract_path(@location, c) %>" class="btn-contract">See Details</a>
