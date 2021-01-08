@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
-
+  config.action_mailer.default_url_options = { :host => "http://localhost:3000" }
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
