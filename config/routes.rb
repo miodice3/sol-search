@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   root "application#aboutus"
 
+  get '/users/validate', to: 'users#validate'
+
   resources :users
   resources :contracts
   resources :locations
