@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        
+        @user.confirmation_token = SecureRandom.hex(13)
+        byebug
             if @user.save
                 session[:user_id] = @user.id
                 UserMailer.with(user: @user).welcome_email.deliver_later

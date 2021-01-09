@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_134745) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "confirmation_token"
+    t.string "confirmation_token", default: ""
     t.boolean "confirmed", default: false
   end
 
