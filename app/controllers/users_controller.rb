@@ -13,10 +13,14 @@ class UsersController < ApplicationController
     end
 
     def show
+        # byebug
         user_authorized
         find_user
     end
 
+    def update
+        byebug
+    end
     private
 
     def user_params
