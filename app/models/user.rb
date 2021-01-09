@@ -5,11 +5,13 @@ class User < ApplicationRecord
     validates_uniqueness_of :email
 
     # validates :password, :presence =>true, :confirmation =>true #works but breaks email validation
-    validates :password, :presence =>true, :confirmation =>true, :on => :create
+    # validates :password, :presence =>true, :confirmation =>true, :on => :create #works w email but not good for pw update or reset
+    validates :password, :presence =>true, :confirmation =>true, :if => :password
     validates_confirmation_of :password, :message => "Passwords should match"
     
     # validates :password, length: { in: 6..50 } #works but breaks email validation
-    validates :password, length: { in: 6..50 }, :on => :create
+    # validates :password, length: { in: 6..50 }, :on => :create #works w email but not good for pw update or reset
+    validates :password, length: { in: 6..50 }, :if => :password
     # validates :password, length: { in: 6..50 }, :if => :password #did not work
     # validates :password, length: { in: 6..50 }, allow_nil: true #did not work
 
