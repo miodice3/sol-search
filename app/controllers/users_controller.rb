@@ -19,7 +19,17 @@ class UsersController < ApplicationController
     end
 
     def email_confirmation
-        byebug
+        #byebug
+        @user = User.find_by(confirmation_token: params[:token])
+        @user.confirmed = true
+
+        if @user.save
+            flash[:error] = "Your email has been validated, thank you"
+            redirect_to user_path(@user)
+        else
+            flash[:error] = "Email has not been validated."
+            redirect_to root_path
+        end
     end
     private
 

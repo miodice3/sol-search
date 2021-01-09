@@ -4,10 +4,14 @@ class User < ApplicationRecord
     validates :name, :email, presence: true
     validates_uniqueness_of :email
 
-    validates :password, :presence =>true, :confirmation =>true
+    # validates :password, :presence =>true, :confirmation =>true #works but breaks email validation
+    validates :password, :presence =>true, :confirmation =>true, :on => :create
     validates_confirmation_of :password, :message => "Passwords should match"
     
-    validates :password, length: { in: 6..50 }
+    # validates :password, length: { in: 6..50 } #works but breaks email validation
+    validates :password, length: { in: 6..50 }, :on => :create
+    # validates :password, length: { in: 6..50 }, :if => :password #did not work
+    # validates :password, length: { in: 6..50 }, allow_nil: true #did not work
 
     has_many :feedbacks
 
