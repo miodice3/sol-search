@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root "application#aboutus"
 
-  post '/users/validate', to: 'users#validate'
+  get '/users/email_confirmation', to: 'users#email_confirmation'
 
   resources :users
   resources :contracts

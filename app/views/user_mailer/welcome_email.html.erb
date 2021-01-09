@@ -9,23 +9,10 @@
       <%= @user.name %>, you have successfully signed up.<br>
     </p>
     <p>
-      To validate your email and and unlock access to view, post, and accept contracts, please click here: 
-
+      To validate your email and and unlock access to view, post, and accept contracts, please click here:<br>
+<%= link_to "Click here (local host hard coded)", "http://localhost:3000/users/email_confirmation?token=" + @user.confirmation_token %> to confirm your e-mail address.<br>
+<%= link_to "Click here, root_url dynamic for prod dev env", root_url + "users/email_confirmation?token=" + @user.confirmation_token %> to confirm your e-mail address. <br>
     </p>
     <p>Thanks for joining and have a great day!</p>
   </body>
 </html>
-
-
-<%= form_with model:@user, :url => user_url(@user)  do |f|  %>
-
-    <%= f.hidden_field :user, :value => @user.id %>
-
-    <%= f.submit "Confirm Email by Clicking Here from hidden field" %>
-
-<% end%>
-
-<%= form_tag "#{users_validate_url}" do %>
-<%= hidden_field_tag :user, :value => @user.id %>
-  <%= submit_tag "Confirm email via form Tag" %>
-<% end %> 
