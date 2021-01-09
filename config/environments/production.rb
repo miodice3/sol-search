@@ -1,4 +1,5 @@
 Rails.application.configure do
+  require 'securerandom'
   # Settings specified here will take precedence over those in config/application.rb.
   config.action_mailer.default_url_options = { :host => "sol-search.herokuapp.com" }
   # Code is not reloaded between requests.

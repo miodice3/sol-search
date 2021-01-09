@@ -1,4 +1,5 @@
 Rails.application.configure do
+  require 'securerandom'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"

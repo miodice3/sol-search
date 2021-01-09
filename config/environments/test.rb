@@ -4,6 +4,7 @@
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+  require 'securerandom'
   # Settings specified here will take precedence over those in config/application.rb.
   # config.action_mailer.default_url_options = { :host => "http://localhost:3000" }
   # config.cache_classes = false
