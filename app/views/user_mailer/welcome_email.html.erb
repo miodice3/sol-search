@@ -10,8 +10,8 @@
     </p>
     <p>
       To validate your email and and unlock access to view, post, and accept contracts, please click here:<br>
-<%= link_to "Click here (local host hard coded)", "http://localhost:3000/users/email_confirmation?token=" + @user.confirmation_token %> to confirm your e-mail address.<br>
-<%= link_to "Click here, root_url dynamic for prod dev env", root_url + "users/email_confirmation?token=" + @user.confirmation_token %> to confirm your e-mail address. <br>
+
+      <%= link_to "Click here, root_url dynamic for prod dev env", root_url + "users/email_confirmation?token=" + @user.confirmation_token %> to confirm your e-mail address. <br>
     </p>
     <p>Thanks for joining and have a great day!</p>
   </body>
