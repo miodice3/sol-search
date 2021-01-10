@@ -1,6 +1,10 @@
-Welcome to sol-search, <%= @user.name %>
+Welcome to sol-search
 ===============================================
 
-To login to the site, just follow this link: <%= @url %>.
+<%= @user.name %>, you have successfully registered your account.
 
-Thanks for joining and have a great day!
+In order to create locations, view, post and accept contracts, please validate your e-mail by copying and pasting this URL into your browser while being logged in:
+
+<%= root_url + "users/email_confirmation?token=" + @user.confirmation_token %>
+
+Thanks for joining!

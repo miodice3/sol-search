@@ -4,15 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to sol-search</h1>
-    <p>
-      <%= @user.name %>, you have successfully signed up.<br>
-    </p>
-    <p>
-      To validate your email and and unlock access to view, post, and accept contracts, please click here:<br>
 
-      <%= link_to "Click here, root_url dynamic for prod dev env", root_url + "users/email_confirmation?token=" + @user.confirmation_token %> to confirm your e-mail address. <br>
+    <h1 style="color:#2e86abff;text-align:center;">Welcome to sol-search</h1>
+    <p style="text-align:center;">
+      <%= @user.name %>, you have successfully registered your account.<br><br>
+      In order to create locations, view, post and accept contracts, please validate your e-mail by <%= link_to "clicking here", root_url + "users/email_confirmation?token=" + @user.confirmation_token %>.<br><br>
+      
+      Thanks for joining!
     </p>
-    <p>Thanks for joining and have a great day!</p>
+
   </body>
 </html>

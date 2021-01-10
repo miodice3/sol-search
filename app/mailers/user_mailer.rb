@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
 
     def welcome_email
         @user = params[:user]        
-        mail to: @user.email, subject: "#{@user.name}, Welcome to sol-search! Please confirm your account"
+        mail to: @user.email, subject: "#{@user.name}, Welcome to sol-search! Please confirm your e-mail"
     end
 
 end

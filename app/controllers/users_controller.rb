@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :require_login, except: [:create]
+    before_action :require_login, except: [:create, :email_confirmation]
 
     def create
         @user = User.new(user_params)
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
             redirect_to root_path
         end
     end
-    
+
     private
 
     def user_params
