@@ -8,8 +8,8 @@ class UserMailer < ApplicationMailer
     end
 
     def contract_recieved_email
-        @user = params[:user]
         @location = params[:location]
+        @user = params[:user]
         mail to: @user.email, subject: "#{@location.name} has recieved a proposal on sol-search!"
     end
 

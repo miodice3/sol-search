@@ -22,6 +22,9 @@ class ContractsController < ApplicationController
             c.status = "Proposed"
             end
         if @contract.valid?
+            @user = @contract.owner
+            @location = @contract.location
+            UserMailer.with(user: @user, location: @location).contract_recieved_email.deliver_later
             redirect_to contract_path(@contract)
         else
             render new_contract_path
