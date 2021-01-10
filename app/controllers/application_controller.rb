@@ -16,13 +16,17 @@ class ApplicationController < ActionController::Base
     end
 
     def email_validated
-        find_user.confirmed
+        if find_user
+            find_user.confirmed
+        else
+            false
+        end
     end
 
     def require_login
         unless current_user
             flash[:error] = "You must be logged in to access this section"
-            redirect_to root_path
+            redirect_to root_path and return
         end
 
         unless email_validated

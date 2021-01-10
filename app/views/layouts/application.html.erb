@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag 'application',
     'https://fonts.googleapis.com/css2?family=Megrim&display=swap', 
     'https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap', 
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
     media: 'all', 'data-turbolinks-track': 'reload' %>
 
   </head>
@@ -22,7 +23,7 @@
       <% if current_user %>
     <div class="dropdown">
       <button class="dropbtn">options 
-        <i class="fa fa-caret-down"></i>
+
       </button>
       <div class="dropdown-content">
         <%= link_to "My Profile", user_path(current_user) %>
@@ -46,9 +47,9 @@
 
   <% flash.each do |type, msg| %>
       <div class="isa_info">
-        <i class="fa fa-info-circle"></i>
-        <%= msg %>
-        </div>
+      <br>
+        <i class="fa fa-info-circle" ><%= msg %></i>
+      </div>
   <% end %>
 
   </header>
