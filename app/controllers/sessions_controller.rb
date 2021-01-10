@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
 
     def googleAuth
         @user = User.find_or_create_from_omniauth(auth)
+        @user.confirmed = true      
+        @user.save
         session[:user_id] = @user.id
         redirect_to root_path
     end
