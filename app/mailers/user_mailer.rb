@@ -7,4 +7,10 @@ class UserMailer < ApplicationMailer
         mail to: @user.email, subject: "#{@user.name}, Welcome to sol-search! Please confirm your e-mail"
     end
 
+    def contract_recieved_email
+        @user = params[:user]
+        @location = params[:location]
+        mail to: @user.email, subject: "#{@location.name} has recieved a proposal on sol-search!"
+    end
+
 end
