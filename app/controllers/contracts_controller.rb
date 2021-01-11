@@ -43,6 +43,11 @@ class ContractsController < ApplicationController
         if valid_contract && owner_contract && valid_origin
             @contract.update(update_params)
             if @contract.valid?
+                @owner = @contract.owner
+                @consumer = @contract.consumer
+                @location = @contract.location
+                UserMailer.with(owner: @owner, consumer: @consumer, location: @location, contract: @contract).contract_accepted_email_owner.deliver_later
+                UserMailer.with(owner: @owner, consumer: @consumer, location: @location, contract: @contract).contract_accepted_email_consumer.deliver_later
                 redirect_to contract_path(@contract)
             else
                 @contract.status = "Proposed"

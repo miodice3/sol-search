@@ -13,4 +13,20 @@ class UserMailer < ApplicationMailer
         mail to: @user.email, subject: "#{@location.name} has recieved a proposal on sol-search!"
     end
 
+    def contract_accepted_email_owner
+        @owner = params[:owner]
+        @consumer = params[:consumer]
+        @location = params[:location]
+        @contract = params[:contract]
+        mail to: @owner.email, subject: "sol-search, Accepted Contract Details for #{@location.name}"
+    end
+
+    def contract_accepted_email_consumer
+        @owner = params[:owner]
+        @consumer = params[:consumer]
+        @location = params[:location]
+        @contract = params[:contract]
+        mail to: @consumer.email, subject: "sol-search, Accepted Contract Details for #{@location.name}"
+    end
+
 end

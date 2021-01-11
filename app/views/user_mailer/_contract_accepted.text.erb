@@ -1,0 +1,37 @@
+                sol-search
+===============================================
+
+Congratulations!
+
+You have both accepted the below terms.
+
+Please make a formal agreement between yourselves, and remember, the contracts on this website are non binding.  
+
+Most importantly, please make sure the contract on this website accurately reflects the details of your final transaction.  This allows us to accurately show available capacity and efficiently direct customers to locations that have power to sell.
+Without your cooperation, we are unable to connect people efficiently resulting in a longer, more frustrating process for producers and consumers on the site.
+
+Below is a summary of the terms & the counterparties details:
+
+Owner:
+<%= @owner.name %>
+<%= @owner.email %>
+
+Consumer:
+<%= @consumer.name %>
+<%= @consumer.email %>
+
+Terms:
+<%= @contract.capacity %> kWh / year
+<%= @contract.term %> years
+<%= @contract.rate %>% repayment rate
+
+Location:
+Name: <%= @location.name %>
+Utility: <%= @location.utility %>
+Zone: <%= @location.zone %>
+Meter Type: <%= @location.meter_type %>
+State: <%= @location.state %>
+Country: <%= @location.country %>
+Status: <%= @location.status %>
+
+Best of luck!

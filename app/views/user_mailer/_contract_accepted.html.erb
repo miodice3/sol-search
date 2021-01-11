@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+    <h1 style="color:#2e86abff;text-align:center;">sol-search</h1>
+    <p style="text-align:left;">
+      Congratulations!
+    <br><br>
+      You have both accepted the below terms.
+    <br><br>
+      Please make a formal agreement between yourselves, and remember, the contracts on this website are non binding.  
+    <br><br>
+      Most importantly, please make sure the contract on this website accurately reflects the details of your final transaction.  This allows us to accurately show available capacity and efficiently direct customers to locations that have power to sell.
+      Without your cooperation, we are unable to connect people efficiently resulting in a longer, more frustrating process for producers and consumers on the site.
+    <br><br>
+      Below is a summary of the terms & the counterparties details:
+    <br><br>
+      Owner:<br>
+      <%= @owner.name %><br>
+      <%= @owner.email %><br>
+    <br><br>
+      Consumer:<br>
+      <%= @consumer.name %><br>
+      <%= @consumer.email %><br>
+    <br><br>
+      Terms:<br>
+      <%= @contract.capacity %> kWh / year<br>
+      <%= @contract.term %> years<br>
+      <%= @contract.rate %>% repayment rate<br>
+    <br><br>
+      Location:<br>
+      Name: <%= @location.name %><br>
+      Utility: <%= @location.utility %><br>
+      Zone: <%= @location.zone %><br>
+      Meter Type: <%= @location.meter_type %><br>
+      State: <%= @location.state %><br>
+      Country: <%= @location.country %><br>
+      Status: <%= @location.status %><br>
+    <br><br>
+      Best of luck!
+    </p>
+
+  </body>
+</html>
