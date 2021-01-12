@@ -29,4 +29,11 @@ class UserMailer < ApplicationMailer
         mail to: @consumer.email, subject: "sol-search, Accepted Contract Details for #{@location.name}"
     end
 
+    def contract_declined_email_consumer
+        @consumer = params[:consumer]
+        @location = params[:location]
+        @contract = params[:contract]
+        mail to: @consumer.email, subject: "sol-search, Declined Contract Details for #{@location.name}"
+    end
+
 end

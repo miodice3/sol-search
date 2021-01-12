@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+    <h1 style="color:#2e86abff;text-align:center;">sol-search</h1>
+    <p style="text-align:left;">
+      Dear <%= @consumer.name %>,<br>
+    <br><br>
+      We regret to inform you that your proposal to <%= @location.name %> has been declined by the Owner.<br>
+    <br><br>
+      Below are the summary of your offer terms, incase you would like to submit a more competetive offer:
+    <br><br>
+      Terms:<br>
+      <%= @contract.capacity %> kWh / year<br>
+      <%= @contract.term %> years<br>
+      <%= @contract.rate %>% repayment rate<br>
+    <br><br>
+      Location:<br>
+      Name: <%= @location.name %><br>
+      Utility: <%= @location.utility %><br>
+      Zone: <%= @location.zone %><br>
+      Meter Type: <%= @location.meter_type %><br>
+      State: <%= @location.state %><br>
+      Country: <%= @location.country %><br>
+      Status: <%= @location.status %><br>
+    <br><br>
+      Best of luck!
+    </p>
+
+  </body>
+</html>

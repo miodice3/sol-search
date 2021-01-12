@@ -1,0 +1,24 @@
+                sol-search
+===============================================
+
+Dear <%= @consumer.name %>,
+
+We regret to inform you that your proposal to <%= @location.name %> has been declined by the Owner.
+
+Below are the summary of your offer terms, incase you would like to submit a more competetive offer:
+
+Terms:
+<%= @contract.capacity %> kWh / year
+<%= @contract.term %> years
+<%= @contract.rate %>% repayment rate
+
+Location:
+Name: <%= @location.name %>
+Utility: <%= @location.utility %>
+Zone: <%= @location.zone %>
+Meter Type: <%= @location.meter_type %>
+State: <%= @location.state %>
+Country: <%= @location.country %>
+Status: <%= @location.status %>
+
+Best of luck!

@@ -48,8 +48,12 @@ class ContractsController < ApplicationController
                 @consumer = @contract.consumer
                 @location = @contract.location
                 #this will also email both even if rejected
-                UserMailer.with(owner: @owner, consumer: @consumer, location: @location, contract: @contract).contract_accepted_email_owner.deliver_later
-                UserMailer.with(owner: @owner, consumer: @consumer, location: @location, contract: @contract).contract_accepted_email_consumer.deliver_later
+                if @contract.status == "Accepted"
+                    UserMailer.with(owner: @owner, consumer: @consumer, location: @location, contract: @contract).contract_accepted_email_owner.deliver_later
+                    UserMailer.with(owner: @owner, consumer: @consumer, location: @location, contract: @contract).contract_accepted_email_consumer.deliver_later
+                elsif @contract.status == "Declined"
+                    UserMailer.with(consumer: @consumer, location: @location, contract: @contract).contract_declined_email_consumer.deliver_later
+                end
                 redirect_to contract_path(@contract)
             else
                 @contract.status = "Proposed"

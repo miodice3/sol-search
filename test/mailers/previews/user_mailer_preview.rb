@@ -18,4 +18,8 @@ class UserMailerPreview < ActionMailer::Preview
         UserMailer.with(owner: User.last, consumer: User.first, location: Location.last, contract: Contract.last).contract_accepted_email_consumer
     end
 
+    def contract_declined_email_consumer
+        UserMailer.with(consumer: User.first, location: Location.last, contract: Contract.last).contract_declined_email_consumer
+    end
+
 end
