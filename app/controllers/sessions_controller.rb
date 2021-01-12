@@ -23,7 +23,6 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to root_path
         elsif !!@user && @user.authenticate(user_params[:password]) && @user.confirmed
-            byebug
             session[:user_id] = @user.id
             redirect_to root_path
         else
