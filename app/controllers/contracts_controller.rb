@@ -47,6 +47,7 @@ class ContractsController < ApplicationController
                 @owner = @contract.owner
                 @consumer = @contract.consumer
                 @location = @contract.location
+                #this will also email both even if rejected
                 UserMailer.with(owner: @owner, consumer: @consumer, location: @location, contract: @contract).contract_accepted_email_owner.deliver_later
                 UserMailer.with(owner: @owner, consumer: @consumer, location: @location, contract: @contract).contract_accepted_email_consumer.deliver_later
                 redirect_to contract_path(@contract)
