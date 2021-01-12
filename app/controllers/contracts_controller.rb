@@ -27,6 +27,7 @@ class ContractsController < ApplicationController
             UserMailer.with(user: @user, location: @location).contract_recieved_email.deliver_later
             redirect_to contract_path(@contract)
         else
+            @location=Location.find_by(id: session[:last_location])
             render new_contract_path
         end       
     end
