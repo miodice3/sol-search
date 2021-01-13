@@ -16,6 +16,7 @@
   <header>
         <div class="logotext">
           <%= link_to "sol-search", locations_path %>
+          <%= link_to "give me the juice", location_path(Location.order("annual_capacity DESC").first) %>
         </div>
 
       <div class="navbar">

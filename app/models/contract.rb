@@ -22,7 +22,7 @@ class Contract < ApplicationRecord
     scope :Proposed, -> { where(status: "Proposed") }
     scope :Accepted, -> { where(status: "Accepted") }
     scope :Declined, -> { where(status: "Declined") }
-
+#remove capitals, not standard naming convention
 
     def end_date(c)
         finish = c.created_at + (c.term*365).day
